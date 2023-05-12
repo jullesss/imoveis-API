@@ -1,6 +1,9 @@
-import { DataSource, DataSourceOptions } from "typeorm";
+import { DataSource, DataSourceOptions, Repository } from "typeorm";
 import path from "path";
 import "dotenv/config";
+import { RealEstate, Schedule, User } from "./entities";
+import { Category } from "./entities";
+import { Address } from "./entities";
 
 const settings = (): DataSourceOptions => {
   const entitiesPath: string = path.join(__dirname, "./entities/**.{ts,js}");
@@ -33,3 +36,14 @@ const settings = (): DataSourceOptions => {
 const AppDataSource = new DataSource(settings());
 
 export { AppDataSource };
+
+const userRepo: Repository<User> = AppDataSource.getRepository(User);
+const scheduleRepo: Repository<Schedule> =
+  AppDataSource.getRepository(Schedule);
+const realEstateRepo: Repository<RealEstate> =
+  AppDataSource.getRepository(RealEstate);
+const categoryRepo: Repository<Category> =
+  AppDataSource.getRepository(Category);
+const addressRepo: Repository<Address> = AppDataSource.getRepository(Address);
+
+export { userRepo, scheduleRepo, realEstateRepo, categoryRepo, addressRepo };
