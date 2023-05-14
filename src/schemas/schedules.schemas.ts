@@ -4,7 +4,7 @@ import { realEstateSchemaResponse } from "./realEstate.schemas";
 const schedule = z.object({
   id: z.number(),
   date: z.string(),
-  hour: z.string().datetime({ precision: 3 }),
+  hour: z.string(),
   realEstateId: z.number().int(),
   userId: z.number().int(),
 });

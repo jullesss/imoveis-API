@@ -19,8 +19,7 @@ const usersSchemaRequest = usersSchema.omit({
   deletedAt: true,
 });
 
-const usersSchemaResponse = usersSchema /* .partial() */
-  .omit({ password: true });
+const usersSchemaResponse = usersSchema.omit({ password: true });
 
 const arrayUsersSchemaResponse = z.array(usersSchemaResponse);
 

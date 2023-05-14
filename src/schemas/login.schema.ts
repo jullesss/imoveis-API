@@ -5,8 +5,4 @@ const loginUserSchemaRequest = z.object({
   password: z.string(),
 });
 
-/* const loginUserResponse = z.object({
-  token: z.string(),
-}); */
-
-export { loginUserSchemaRequest /* loginUserResponse */ };
+export { loginUserSchemaRequest };
